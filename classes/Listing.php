@@ -26,7 +26,7 @@ class Listing
         $stmt = $conn->prepare($sql);
 
         $stmt->bind_param(
-            "ssdssssii",
+            "ssdsssii",
             $title,
             $description,
             $price,
