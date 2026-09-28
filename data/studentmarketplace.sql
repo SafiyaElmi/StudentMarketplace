@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 28, 2026 at 11:23 AM
+-- Generation Time: Sep 28, 2026 at 11:33 AM
 -- Server version: 8.0.46
 -- PHP Version: 8.3.28
 
@@ -48,9 +48,9 @@ CREATE TABLE IF NOT EXISTS `cartitem` (
   `cartID` int NOT NULL,
   `listingID` int NOT NULL,
   PRIMARY KEY (`cartItemID`),
-  KEY `fk_cartitem_cart` (`cartID`),
+  UNIQUE KEY `unique_cart_listing` (`cartID`,`listingID`),
   KEY `fk_cartitem_listing` (`listingID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `orderitem` (
   PRIMARY KEY (`orderItemID`),
   KEY `fk_orderitem_order` (`orderID`),
   KEY `fk_orderitem_listing` (`listingID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   PRIMARY KEY (`reviewID`),
   KEY `fk_review_user` (`userID`),
   KEY `fk_review_listing` (`listingID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
